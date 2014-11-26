@@ -13,7 +13,10 @@ if (process.argv.length < 4) {
 var path = process.argv[2];
 var extension = process.argv[3];
 var callback = function (err, fileListData) {
-	if (err) return err;
+	if (err) {
+		//console.log(err);
+		return;
+	}
 	console.log(fileListData);
 }
 

@@ -15,7 +15,7 @@ module.exports = function(path, extension, next) {
 						fileList += list[i] + '\r\n';
 					}
 				};
-				next(err, fileList);
+				next(null, fileList);
 			});
 		}
 	}
