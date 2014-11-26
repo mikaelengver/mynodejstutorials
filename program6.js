@@ -12,13 +12,12 @@ if (process.argv.length < 4) {
 
 var path = process.argv[2];
 var extension = process.argv[3];
-var callback = function (err, fileListData) {
-	if (err) {
-		//console.log(err);
-		return;
-	}
-	console.log(fileListData);
-}
 
-var myFileListModule = fileListModule(path, extension, callback);
-myFileListModule.readDirectoryAsync();
+fileListModule(path, extension, function (err, fileListData) {
+	if (err) {
+		return console.error("Error oocured: ", err);
+	}
+	fileListData.forEach(function (file) {
+		console.log(file);
+	})
+});
